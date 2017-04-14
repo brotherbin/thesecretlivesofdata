@@ -100,15 +100,15 @@ define([], function () {
                 g.each(function(node) {
                     // Description.
                     var desc = [];
-                    desc.push("Node " + node.id);
-                    desc.push("Term: " + node.currentTerm());
+                    desc.push("节点 " + node.id);
+                    desc.push("任期: " + node.currentTerm());
                     desc.push();
                     if (node.state() === "candidate") {
-                        desc.push("Vote Count: " + node.voteCount());
+                        desc.push("选票数量: " + node.voteCount());
                     } else if (node.leaderId() !== null) {
-                        desc.push("Leader: " + node.leaderId());
+                        desc.push("领导者: " + node.leaderId());
                     } else if (node.state() === "follower" && node.votedFor() !== null) {
-                        desc.push("Voted For: " + node.votedFor());
+                        desc.push("投票给: " + node.votedFor());
                     }
                     d3.select(this).select("text.node-description")
                         .attr("y", function (d) {
